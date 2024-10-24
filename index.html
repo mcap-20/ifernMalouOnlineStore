@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./images/f.png" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet"> 
+        <!-- HTML Meta Tags -->
+        <title>IfernMalou Online Store</title>
+        <meta name="description" content="Shop Product Lists, Prices and Placing of Order">
+
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="https://www.ifernmalou.shop">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="IfernMalou Online Store">
+        <meta property="og:description" content="Shop Product Lists, Prices and Placing of Order">
+        <meta property="og:image" content="https://www.ifernmalou.shop/images/f.png">
+
+
+        <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+        <link rel="shortcut icon" href="./images/x-icon.png" type="image/x-icon">
+    </head>
+    
+
+<!-- or for Merriweather -->
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+        font-family: 'Lora', serif; /* or 'Merriweather', serif */
+        margin: 0;
+        padding: 0;
+        background-color: #898989;
+        color: #333;
+        transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark {
+            background-color: #121212;
+            color: white;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background: #519469;
+            color: white;
+        }
+        #theme-toggle {
+        margin-top: 10px;
+        padding: 10px;
+        background: rgb(255, 255, 255);
+        color: #001eff;
+        border: none;
+        cursor: pointer;
+        transition: color 0.3s;
+        font-size: 1.0em;
+        font-weight: bold;
+        }
+
+        main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start; /* Adjust as needed */
+    padding: 20px;
+    max-width: 1200px; /* Add a max width for better centering */
+    margin: 0 auto; /* Center the main container */
+}
+
+.product {
+    background: white;
+    border: 1px solid #959292;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+        .description {
+        color: #000000; /* Change to your desired color */
+        font-size: 20px; /* Set the font size */
+        font-weight: 600; /* Adjust the font weight (e.g., 400 for normal, 700 for bold) */
+        margin-top: 10px; /* Add spacing if needed */
+        font-family: Arial, Helvetica, sans-serif
+        }
+        .description li {
+        color: #000000; /* Same color as description */
+        font-size: 20px; /* Same font size as description */
+        font-weight: 600; /* Same font weight as description */
+        margin-top: 5px; /* Add spacing between list items */
+        font-family: Arial, Helvetica, sans-serif; /* Same font family */
+        list-style-type: none; /* Optional: remove bullet points */
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #959292;
+        }
+        .product h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .product p {
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+        .product button {
+            display: block;
+            margin-top: 10px;
+            padding: 12px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .product button:hover {
+            background: #218838;
+        }
+        /* Dark Theme */
+        body.dark header {
+            background-color: #1e1e1e;
+        }
+        body.dark .product {
+            border: 1px solid #333;
+            background-color: #1e1e1e;
+        }
+        body.dark .product h2,
+        body.dark .product p {
+            color: white; /* Ensures text is visible */
+        }
+        body.dark .product button {
+            background: #28a745; /* Keep button color for contrast */
+        }
+        @media (max-width: 600px) {
+            .product {
+                width: 90%;
+            }
+        }
+        @media (max-width: 900px) {
+            .product {
+                width: 45%;
+            }
+        }
+        @media (min-width: 901px) {
+            .product {
+                width: 30%;
+            }
+        }
+        .product .price {
+        font-size: 2.5em; /* Adjust size as needed */
+        font-weight: bold;
+        }
+
+        .product .delivery-info {
+        font-weight: bold; /* Make the text bold */
+        }
+        .footer {
+        text-align: center;
+        padding: 10px 0;
+        background: #090909; /* Optional: background color */
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        color: white;
+    }
+    .review {
+    font-size: 15px; /* Increase size */
+    color: #FFCC00; /* Change to a brighter gold */
+    margin: 2px 0; /* Space between title and review */
+    }
+    .logo {
+    max-width: 400px; /* Adjust this size as needed */
+    height: auto; /* Maintains aspect ratio */
+    display: block;
+    margin: 0 auto; /* Center the logo */
+    }
+    .parent-container {
+    text-align: center; /* Center contents */
+}
+
+    @media (max-width: 900px) {
+    .product {
+        width: 100%; /* Full width on small screens */
+    }
+    
+
+@media (max-width: 900px) {
+    .product {
+        width: 100%; /* Two products per row */
+    }
+}
+
+@media (min-width: 901px) {
+    .product {
+        width: 30%; /* Three products per row */
+    }
+}
+
+    }
+    body {
+    position: relative; /* Position relative for absolute elements */
+}
+
+.snowflakes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent interaction */
+    z-index: 9999; /* Ensure it appears above other elements */
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px; /* Start above the viewport */
+    color: white; /* Snowflake color */
+    font-size: 1.5rem; /* Adjust size */
+    animation: fall linear infinite; /* Animation for falling effect */
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh); /* Move to the bottom of the viewport */
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <img src="./images/x-icon.png" alt="Ifern Malou Logo" class="logo">
+        <h1>IfernMalou Online Store</h1>
+        <h1>Product Price Lists</h1>
+        <button id="theme-toggle">Switch to Dark Theme</button>
+    </header>
+    <main id="product-list">
+        <!-- Product 1 -->
+        <div class="product">
+            <img src="./images/power.png" alt="Product 1">
+            <h2>POWER TRIO PACK 1</h2>
+            <div class="review">
+                ★★★★★
+            </div>            
+            <p><strong>Price: ₱3,080.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">POWER TRIO PACK:
+                Multivitamins for Men and Women.
+                Boost your wellness routine with the Power Trio! This combination of supplements offers a potent blend of vitamins and minerals that support overall health. When taken together, they provide essential nutrients to keep your body balanced.</p>
+                
+                <li>FERN ACTIV (60 Capsules): Contains 8 essential vitamins and minerals that help support energy levels, mental focus, and immune function. Ideal for those with active lifestyles who seek nutritional balance.</li>
+                
+                <li>MILKCA (60 Capsules): A calcium supplement sourced from real milk, formulated to support bone strength and muscle health. Calcium is essential for maintaining healthy bones and teeth.</li>
+                
+                <li>FERN D (60 Softgels): Helps support bone health and immune system function. Vitamin D plays an important role in helping your body absorb calcium and maintain bone health.</li>
+            <button onclick="sendOrder('POWER TRIO PACK 1', '₱3,080.00')">Order</button>
+        </div>
+        <!-- Product 2 -->
+        <div class="product">
+            <img src="./images/power.png" alt="Product 2">
+            <h2>POWER TRIO PACK 2</h2>
+            <div class="review">
+                ★★★★★
+            </div>            
+            <p><strong>Price: ₱3,780.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">POWER TRIO PACK:
+                Multivitamins for Men and Women.
+                Boost your wellness routine with the Power Trio! This combination of supplements offers a potent blend of vitamins and minerals that support overall health. When taken together, they provide essential nutrients to keep your body balanced.</p>
+                
+                <li>FERN ACTIV (60 Capsules): Contains 8 essential vitamins and minerals that help support energy levels, mental focus, and immune function. Ideal for those with active lifestyles who seek nutritional balance.</li>
+                
+                <li>MILKCA (60 Capsules): A calcium supplement sourced from real milk, formulated to support bone strength and muscle health. Calcium is essential for maintaining healthy bones and teeth.</li>
+                
+                <li>FERN D (120 Softgels): Helps support bone health and immune system function. Vitamin D plays an important role in helping your body absorb calcium and maintain bone health.</li>
+            <button onclick="sendOrder('POWER TRIO PACK 2', '₱3,780.00')">Order</button>
+        </div>
+        <!-- Add more products as needed -->
+        <div class="product">
+            <img src="./images/activ.png" alt="Product 3">
+            <h2>FERN-ACTIV</h2>
+            <div class="review">
+                ★★★★☆
+            </div>            
+            <p><strong>Price: ₱1,100.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">FERN ACTIV (60 Capsules): is packed with B-Vitamins needed for the energy surge ideal for peak performance. It also contains non-acidic vitamin C for improved immunity, Zinc for added energy, vitamin D for stronger muscles and Calcium for healthy bones!
+                B-VITAMINS are essential for your body to function properly and they may be the crucial link between your bodys requirements and peak performance.
+                These vitamins convert proteins and carbohydrates into energy. They are also used for cell repair and production. Deficiency in B- Vitamins may lead to poor recovery and may be detrimental to your active lifestyle.
+                Sources of B- Vitamins include green, leafy vegetables, nuts and dairy products. But because of budget constraints, or a hectic lifestyle most of us suffer from poor or restricted diets.</p>
+            <button onclick="sendOrder('FERN-ACTIV', '₱1,100.00')">Order</button>
+        </div>
+        <div class="product">
+            <img src="./images/milk.png" alt="Product 4">
+            <h2>MILKCA</h2>
+            <div class="review">★★★★☆</div> <!-- Properly place the stars inside the div -->
+            <p><strong>Price: ₱1,200.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">MILKCA (60 Capsules): is a bone health that derives its calcium and other minerals from milk. Because its made from milk, MilkCa is more readily and easily absorbed by the body.
+                Ensure that your bones remain strong by taking calcium daily! Our bones store calcium and daily supplementation can help prevent bone deterioration in the future!
+                According to scientific studies, 99% of our bodys calcium goes to bones and teeth where it supports function and structure.
+                Calcium is also needed to regulate blood pressure, maintain nerve functions and keep our muscles healthy!</p>
+            <button onclick="sendOrder('MILKCA', '₱1,200.00')">Order</button>
+        </div>        
+        <div class="product">
+            <img src="./images/dd.png" alt="Product 5">
+            <h2>FERN-D (60 SOFTGELS)</h2>
+            <div class="review"> ★★★★☆</div>            
+            <p><strong>Price: ₱780.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">FERN D (60 Softgels): is a brand name for the generic "cholecalciferol" or better known as Vitamin D3.
+                Study shows that people who have high levels of vitamin D has a lower risk on having diseases like cancer, diabetes, tuberculosis, bone fractures, muscle weakness, and many more.
+                Many of us are not aware that almost all diseases that caused death are mostly linked to Vitamin D Deficiency. If you dont get direct sunlight everyday, then you might be at risk of this deficiency.
+                Save yourself and your love ones from suffering in the future! Take FERN-D everyday to make sure you get the vitamin D you need everyday! Even without the sun!</p>
+            <button onclick="sendOrder('FERN-D (60 SOFTGELS)', '₱780.00')">Order</button>
+        </div>
+        <div class="product">
+            <img src="./images/d.png" alt="Product 6">
+            <h2>FERN-D (120 SOFTGELS)</h2>
+            <div class="review">
+                ★★★★☆
+            </div>            
+            <p><strong>Price: ₱1,480.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">FERN D (120 Softgels): is a brand name for the generic "cholecalciferol" or better known as Vitamin D3.
+                Study shows that people who have high levels of vitamin D has a lower risk on having diseases like cancer, diabetes, tuberculosis, bone fractures, muscle weakness, and many more.
+                Many of us are not aware that almost all diseases that caused death are mostly linked to Vitamin D Deficiency. If you dont get direct sunlight everyday, then you might be at risk of this deficiency.
+                Save yourself and your love ones from suffering in the future! Take FERN-D everyday to make sure you get the vitamin D you need everyday! Even without the sun!</p>
+            <button onclick="sendOrder('FERN-D (120 SOFTGELS)', '₱1,480.00')">Order</button>
+        </div>
+        <div class="product">
+            <img src="./images/e.png" alt="Product 7">
+            <h2>FERN-E</h2>
+            <div class="review">
+                ★★★★☆
+            </div>            
+            <p><strong>Price: ₱1,400.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">FFERN-E (60 Capsules):
+                Support Your Skin and Hair with Vitamin E
+                This Vitamin E supplement is a powerful antioxidant that helps protect cells from environmental stressors. It can help support the health of your skin and hair by promoting moisture and collagen production.
+                
+                Contains high-quality, non-GMO sunflower oil for a natural source of Vitamin E.
+                Regular intake may help support overall skin health and immune function.</p>
+            <button onclick="sendOrder('FERN-E', '₱1,400.00')">Order</button>
+        </div>
+        <div class="product">
+            <img src="./images/collagen.png" alt="Product 8">
+            <h2>F-COLLAGEN</h2>
+            <div class="review">
+                ★★★★☆
+            </div>            
+            <p><strong>Price: ₱1,700.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">F-COLLAGEN (7 Sachets/Box):
+                For Joint and Skin Health
+                F-Collagen contains bioactive collagen peptides from GELITA, a top collagen supplier in Europe. This supplement is formulated to support joint and bone health, as well as skin elasticity.
+                
+                Supports healthy joints and may help restore cartilage.
+                Promotes skin hydration and elasticity, helping to reduce signs of aging.</p>
+            <button onclick="sendOrder('F-COLLAGEN', '₱1,700.00')">Order</button>   
+        </div>
+        <div class="product">
+            <img src="./images/flex.png" alt="Product 9">
+            <h2>FERN FLEX</h2>
+            <div class="review">
+                ★★★★☆
+            </div>            
+            <p><strong>Price: ₱1,570.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">FERN FLEX (30 Capsules):
+                Support Joint Health
+                FERN Flex is a food supplement containing UCII, an undenatured type II collagen that helps support healthy joints. Regular use may assist in maintaining joint comfort and flexibility, helping you stay active and do the things you love.
+                
+                UCII collagen helps support joint function and may assist in joint comfort.
+                Designed to support an active lifestyle by helping maintain healthy joints.</p>
+            <button onclick="sendOrder('FERN FLEX', '₱1,570.00')">Order</button>
+        </div>
+        <div class="product">
+            <img src="./images/coffee.png" alt="Product 10">
+            <h2>FERN COFFEE</h2>
+            <div class="review">
+                ★★★★☆
+            </div>            
+            <p><strong>Price: ₱330.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">FERN COFFEE (10 Sachets/Box):
+                Start Your Day with a Healthier Coffee
+                FERN Coffee is a 3-in-1 coffee mix enriched with essential vitamins and minerals such as Vitamin C, B1, D3, calcium, and zinc. It’s a delicious way to energize your morning while also supporting your daily nutrition needs.
+                
+                Includes sodium ascorbate (non-acidic Vitamin C) and zinc for immune support.
+                Provides a convenient and healthy alternative to regular coffee.
+                </p>
+            <button onclick="sendOrder('FERN COFFEE', '₱330.00')">Order</button>
+        </div>
+        <div class="product">
+            <img src="./images/bar.png" alt="Product 11">
+            <h2>AURORA BEAUTY BAR SOAP</h2>
+            <div class="review">
+                ★★★★☆
+            </div>            
+            <p><strong>Price: ₱400.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">AURORA BEAUTY BAR SOAP (135g):
+                Nourish and Revitalize Your Skin
+                Aurora Beauty Bar is infused with premium ingredients like Argan Oil, Swiss Apple Stem-Cell, and Aloe Vera. Designed to leave your skin feeling soft, smooth, and hydrated, this soap helps support skin rejuvenation and nourishment.
+                
+                Helps maintain skin hydration and smoothness.
+                Suitable for everyday use with a non-irritating, paraben-free formula.</p>
+            <button onclick="sendOrder('AURORA BEAUTY BAR SOAP', '₱400.00')">Order</button>
+        </div>
+        <div class="product">
+            <img src="./images/lotion.png" alt="Product 12">
+            <h2>AURORA HAND AND BODY LOTION</h2>
+            <div class="review">
+                ★★★★☆
+            </div>            
+            <p><strong>Price: ₱650.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">Aurora Hand and Body Lotion (200mL):
+                Age-Defying Formula for Softer Skin
+                This luxurious lotion combines Argan Oil, Swiss Apple Stem-Cell, and Aloe Vera to leave your skin feeling moisturized and smooth. Formulated to help improve skin clarity and balance, it works to prevent dryness and maintain a youthful look.
+                
+                Provides long-lasting moisture and supports skin smoothness.
+                Triple-A ingredients help reduce the appearance of aging signs and improve skin tone.</p>
+            <button onclick="sendOrder('AURORA HAND AND BODY LOTION', '₱650.00')">Order</button>
+        </div>
+        <div class="product">
+            <img src="./images/silver.png" alt="Product 13">
+            <h2>SILVER FRESH TOOTHPASTE</h2>
+            <div class="review">
+                ★★★★☆
+            </div>            
+            <p><strong>Price: ₱400.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">SILVER FRESH TOOTHPASTE (100mL):
+                Fresh Breath and Clean Teeth
+                Silver Fresh is the first toothpaste in the Philippines formulated with Silver Ion Particles, Vitamin E, and Zinc Lactate. These ingredients work together to help prevent bacteria growth, tartar formation, and bad breath.
+                
+                Free from harsh chemicals like parabens, fluoride, and triclosan.
+                Gentle, coconut-based formula for a fresh, clean mouth feel.</p>
+            <button onclick="sendOrder('SILVER FRESH TOOTHPASTE', '₱400.00')">Order</button>
+        </div>
+        <div class="product">
+            <img src="./images/face.png" alt="Product 14">
+            <h2>AURORA FACE SERUM</h2>
+            <div class="review">
+                ★★★★☆
+            </div>            
+            <p><strong>Price: ₱1,200.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">AURORA FACE SERUM (30mL):
+                4-in-1 Skin Serum for Radiant Skin
+                Aurora Face Serum is formulated with Niacinamide and Vitamins C, D, and E to promote skin firmness, brightness, and elasticity. It provides antioxidant protection against environmental stressors while improving skin hydration.
+                
+                Supports healthy skin tone and moisture.
+                Helps reduce the appearance of fine lines and promote skin vitality.</p>
+            <button onclick="sendOrder('AURORA FACE SERUM', '₱1,200.00')">Order</button>
+        </div>
+        <div class="product">
+            <img src="./images/eyecream.png" alt="Product 15">
+            <h2>AURORA EYE CREAM</h2>
+            <div class="review">
+                ★★★★☆
+            </div>            
+            <p><strong>Price: ₱1,200.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">AURORA EYE CREAM (30mL):
+                Revitalize the Skin Around Your Eyes
+                This eye cream is packed with botanical ingredients designed to help tighten and lift the skin around your eyes. It supports collagen production to improve firmness and hydration, reducing the appearance of puffiness and fine lines.
+                
+                Helps reduce dark circles and puffiness.
+                Paraben-free, silicone-free, and suitable for sensitive skin.</p>
+            <button onclick="sendOrder('AURORA EYE CREAM', '₱1,200.00')">Order</button>
+        </div>
+        <div class="product">
+            <img src="./images/sp.png" alt="Product 16">
+            <h2>Million Glow Strawberry
+                Peach with Lemon Extract</h2>
+            <div class="review">
+                ★★★★★
+            </div>            
+            <p><strong>Price: ₱399.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">A refreshing and revitalizing beverage known for its delightful blend of natural flavors. This invigorating drink features the sweet and juicy essence of ripe strawberries and peaches, creating a harmonious balance of fruity goodness.
+                <p>Key Benefits:</strong></p>
+                <li>Natural Fat Burner</li>
+                <li>Appetite Suppressant</li>
+                <li>Improves Metabolism and Gut Health</li>
+                <li>Rich in Antioxidants</li>
+                <li>Skin Lightening and Moisturizing</li>
+                <li>Immune System Booster</li>
+                <li>Abundant in Vitamins, Fiber, and Minerals</li>
+            <button onclick="sendOrder('MILLION GLOW STRAWBERRY PEACH WITH LEMON EXTRACT', '₱399.00')">Order</button>
+        </div>
+        <div class="product">
+            <img src="./images/ck.png" alt="Product 17">
+            <h2>Million Glow Avocado
+                Cheesecake Flavor</h2>
+            <div class="review">
+                ★★★★★
+            </div>            
+            <p><strong>Price: ₱399.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">A guilt-free treat that not only satisfies your taste buds but also supports your journey to a healthier and happier you. This luscious cheesecake is packed with a myriad of benefits that promote weight loss, boost immunity, enhance skin elasticity, regulate blood sugar and cholesterol levels, suppress appe-tite, and promote overall well-being.
+                <p>Key Benefits:</strong></p>
+                <li>Weight Loss Support</li>
+                <li>Immunity Booster</li>
+                <li>Skin Elasticity and Anti-Aging</li>
+                <li>Blood Sugar and Cholesterol Regulation</li>
+                <li>Appetite Suppressant and Fat Burner</li>
+                <li>Promotes Overall Health</li>
+            <button onclick="sendOrder('MILLION GLOW AVOCADO CHEESE CAKE FLAVOR', '₱399.00')">Order</button>
+        </div>
+        <div class="product">
+            <img src="./images/mc.png" alt="Product 18">
+            <h2>Million Glow Peach Hazelnut with Almond Milk</h2>
+            <div class="review">
+                ★★★★★
+            </div>            
+            <p><strong>Price: ₱399.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">Indulge in the delightful and healthful blend. This exquisite drink not only tantalizes your taste buds but also offers an array of benefits that improve mental alertness, aid in weight management, enhance skin appearance, reduce aging signs, promote relaxation, boost blood circulation, and support digestive health.
+                <p>Key Benefits:</strong></p>
+                <li>Improves Mental Alertness</li>
+                <li>Aids in Fat Burning and Calorie Reduction</li>
+                <li>Enhances Overall Skin Appearance and Reduces Aging Signs</li>
+                <li>Calms and Relieves Stress</li>
+                <li>Boosts Blood Circulation</li>
+                <li>Promotes Digestive Health</li>
+            <button onclick="sendOrder('MILLION GLOW PEACH HAZELNUT WITH ALMOND MILK', '399.00')">Order</button>
+        </div>
+        <div class="product">
+            <img src="./images/pn.png" alt="Product 19">
+            <h2>Million Glow Watermelon
+                Strawberry Flavor</h2>
+            <div class="review">
+                ★★★★★
+            </div>            
+            <p><strong>Price: ₱399.00</strong></p>
+            <p><strong>(Prices may vary based on delivery fees)</strong></p>
+            <p class="description">Experience the ultimate fusion of freshness and health with Million Glow Watermelon Strawberry Flavor. This delightful concoction not only offers a delightful burst of flavor but also presents a plethora of incredible benefits for your overall well-being.
+                <p>Key Benefits:</strong></p>
+                <li>Potent Antioxidant Power</li>
+                <li>Calming and Rejuvenating</li>
+                <li>Lightens and Smoothens Skin</li>
+                <li>Helps in Weight Loss</li>
+                <li>Boosts Energy and Metabolism</li>
+            <button onclick="sendOrder('MILLION GLOW WATERMELON', '₱399.00')">Order</button>
+        </div>
+        <div class="snowflakes" aria-hidden="true">
+            <div class="snowflake">❄</div>
+            <div class="snowflake">❄</div>
+
+        </div>
+    </main>
+
+    <script>
+        function sendOrder(productName, price) {
+            const quantity = prompt("Enter quantity:");
+            if (quantity === null) return; // If cancelled, exit the function
+    
+            const fullName = prompt("Complete Name:");
+            if (fullName === null) return; // If cancelled, exit the function
+    
+            const address = prompt("Address:");
+            if (address === null) return; // If cancelled, exit the function
+    
+            const contactNumber = prompt("Contact Number:");
+            if (contactNumber === null) return; // If cancelled, exit the function
+    
+            const paymentMethod = prompt("Gcash Payment:"); // Changed the prompt text
+            if (paymentMethod === null) return; // If cancelled, exit the function
+            
+            const totalPrice = (parseFloat(price.replace('₱', '').replace(',', '')) * quantity).toFixed(2);
+            const message = `I want to order ${productName} for ${price}.
+            Quantity: ${quantity}
+            Complete Name: ${fullName}
+            Address: ${address}
+            Contact Number: ${contactNumber}
+            Gcash Payment: ${paymentMethod}
+            Total Price to Pay: ₱${totalPrice}`; // Added total price to message
+    
+            const messengerLink = `https://m.me/IfernMalou?text=${encodeURIComponent(message)}`;
+            window.open(messengerLink, '_blank');
+        }
+    
+        // Theme toggle functionality
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            const buttonText = document.body.classList.contains('dark') ? 'Switch to Light Theme' : 'Switch to Dark Theme';
+            document.getElementById('theme-toggle').textContent = buttonText;
+        });
+    
+        // Prevent right-click
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
+    
+        // Disable certain keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Disable F12, Ctrl+Shift+I, Ctrl+U
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+            }
+        });
+        </script>
+    
+
+    
+    <footer class="footer">
+        <p><strong>&copy; 2024 IfernMalou. All rights reserved. Created by: MCAP</strong></p>
+    </footer>
+    
+</body>
+</html>
